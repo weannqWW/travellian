@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Travellian is a travel agency: popular destinations, special offers, trip planners and traveler reviews.">
+  <title>Travellian — Travel Agency</title>
+  <link rel="icon" href="images/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="images/hero-1.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="preload" href="fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/rubik-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles/css/main.css">
+  <script src="scripts/main.js" defer></script>
+</head>
+<body class="page">
+  <header class="header">
+    <div class="header__inner">
+      <img class="header__logo" src="images/logo.svg" alt="Travellian" width="234" height="46">
+
+      <button class="header__burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+      </button>
+
+      <div class="header__panel" id="menu">
+        <nav class="menu" aria-label="Main menu">
+          <ul class="menu__list">
+            <li><a class="menu__link menu__link--active" aria-current="page">Home</a></li>
+            <li><a class="menu__link" href="#destinations">Explore</a></li>
+            <li><a class="menu__link" href="#trips">Travel</a></li>
+            <li><a class="menu__link" href="#blog">Blog</a></li>
+            <li><a class="menu__link" href="#offers">Pricing</a></li>
+          </ul>
+        </nav>
+
+        <div class="header__actions">
+          <a class="header__login" href="#newsletter">Login</a>
+          <a class="button" href="#newsletter">Sign up</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero--slide-1" id="hero">
+      <div class="hero__inner container">
+        <h1 class="hero__title">Start your unforgettable <br>journey with us.</h1>
+        <p class="hero__subtitle">The best travel for your jouney begins now</p>
+
+        <form class="booking" id="booking" action="#" method="get" novalidate>
+          <div class="booking__fields">
+            <label class="booking__field">
+              <span class="booking__label">Destination</span>
+              <input class="booking__input" type="text" name="destination" value="Dubai" autocomplete="off">
+            </label>
+
+            <label class="booking__field">
+              <span class="booking__label">Person</span>
+              <select class="booking__input booking__input--select" name="persons">
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+              </select>
+            </label>
+
+            <label class="booking__field">
+              <span class="booking__label">Check in</span>
+              <span class="booking__date">
+                <span class="booking__date-text">Sun, 17th Sep 2020</span>
+                <input class="booking__date-input" type="date" name="check-in" value="2020-09-17">
+              </span>
+            </label>
+
+            <label class="booking__field">
+              <span class="booking__label">Check out</span>
+              <span class="booking__date">
+                <span class="booking__date-text">Tue, 17th Oct 2020</span>
+                <input class="booking__date-input" type="date" name="check-out" value="2020-10-17">
+              </span>
+            </label>
+          </div>
+
+          <button class="booking__submit" type="submit">
+            <span class="booking__submit-text">Book Now</span>
+            <img class="booking__submit-icon" src="images/icons/arrow-white.svg" alt="" width="23" height="16">
+          </button>
+
+          <p class="booking__message" role="status" aria-live="polite" hidden></p>
+        </form>
+      </div>
+
+      <div class="hero__slider" role="group" aria-label="Background photo">
+        <div class="hero__dots">
+          <button class="hero__dot hero__dot--active" type="button" aria-label="Show slide 1" aria-pressed="true"></button>
+          <button class="hero__dot" type="button" aria-label="Show slide 2" aria-pressed="false"></button>
+          <button class="hero__dot" type="button" aria-label="Show slide 3" aria-pressed="false"></button>
+          <button class="hero__dot" type="button" aria-label="Show slide 4" aria-pressed="false"></button>
+          <button class="hero__dot" type="button" aria-label="Show slide 5" aria-pressed="false"></button>
+        </div>
+        <div class="hero__arrows">
+          <button class="hero__arrow hero__arrow--prev" type="button" aria-label="Previous slide"></button>
+          <button class="hero__arrow hero__arrow--next" type="button" aria-label="Next slide"></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="destinations section" id="destinations">
+      <div class="container">
+        <div class="section__header">
+          <div class="section-title">
+            <h2 class="section-title__heading destinations__heading">Popular Destinations</h2>
+            <p class="section-title__text destinations__text">Most popular destinations around the world, from historical places to natural wonders.</p>
+          </div>
+          <div class="arrows section__arrows" data-carousel-controls="destinations">
+            <button class="arrows__button arrows__button--prev" type="button" aria-label="Previous destination"></button>
+            <button class="arrows__button arrows__button--next" type="button" aria-label="Next destination"></button>
+          </div>
+        </div>
+
+        <ul class="destinations__list" data-carousel="destinations">
+          <li class="destinations__item">
+            <article class="destination-card">
+              <img class="destination-card__image" src="images/destination-berlin.webp" alt="Monument of Berlin at sunset" width="497" height="661" loading="lazy">
+              <div class="destination-card__content">
+                <h3 class="destination-card__title">Monument of Berlin</h3>
+                <p class="destination-card__location">Berlin, Germany</p>
+              </div>
+            </article>
+          </li>
+          <li class="destinations__item">
+            <article class="destination-card">
+              <img class="destination-card__image" src="images/destination-london.webp" alt="Millennium Bridge in London" width="497" height="661" loading="lazy">
+              <div class="destination-card__content">
+                <h3 class="destination-card__title">Millennium Bridge</h3>
+                <p class="destination-card__location">London, United Kingdom</p>
+              </div>
+            </article>
+          </li>
+          <li class="destinations__item">
+            <article class="destination-card">
+              <img class="destination-card__image" src="images/destination-venice.webp" alt="Rialto Bridge in Venice" width="497" height="661" loading="lazy">
+              <div class="destination-card__content">
+                <h3 class="destination-card__title">Rialto Bridge</h3>
+                <p class="destination-card__location">Venice, Italy</p>
+              </div>
+            </article>
+          </li>
+          <li class="destinations__item">
+            <article class="destination-card">
+              <img class="destination-card__image" src="images/destination-bali.webp" alt="Bali landscape" width="497" height="661" loading="lazy">
+              <div class="destination-card__content">
+                <h3 class="destination-card__title">Bali</h3>
+                <p class="destination-card__location">Thailand, Asia</p>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="offers section" id="offers">
+      <div class="container">
+        <div class="section__header section__header--reverse offers__header">
+          <div class="section-title section-title--right">
+            <h2 class="section-title__heading offers__heading">Special Offer</h2>
+            <p class="section-title__text">Check out our special offer and discounts</p>
+          </div>
+          <div class="arrows section__arrows" data-carousel-controls="offers">
+            <button class="arrows__button arrows__button--prev" type="button" aria-label="Previous offer"></button>
+            <button class="arrows__button arrows__button--next" type="button" aria-label="Next offer"></button>
+          </div>
+        </div>
+
+        <ul class="offers__list" data-carousel="offers">
+          <li class="offers__item">
+            <article class="offer-card">
+              <img class="offer-card__image" src="images/offer-lisbon.webp" alt="Street in Lisbon" width="437" height="286" loading="lazy">
+              <div class="offer-card__body">
+                <h3 class="offer-card__title">Lisbon, Portugal</h3>
+                <img class="rating offer-card__rating" src="images/icons/rating.svg" alt="Rating: 5 out of 5" width="136" height="24">
+                <p class="offer-card__text">5 nights and 4 days in 5 star hotel, breakfast and lunch included. Very popular during the renaissance. Passage and going through the cites of the world in classical literature.</p>
+                <div class="offer-card__footer">
+                  <p class="offer-card__price">From <span class="offer-card__price-value">€500</span></p>
+                  <a class="button offer-card__button" href="#booking" data-destination="Lisbon">Details</a>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="offers__item">
+            <article class="offer-card">
+              <img class="offer-card__image" src="images/offer-athens.webp" alt="Acropolis of Athens" width="437" height="286" loading="lazy">
+              <div class="offer-card__body">
+                <h3 class="offer-card__title">Athens, Greece</h3>
+                <img class="rating offer-card__rating" src="images/icons/rating.svg" alt="Rating: 5 out of 5" width="136" height="24">
+                <p class="offer-card__text">5 nights and 4 days in 5 star hotel, breakfast and lunch included. Very popular during the renaissance. Passage and going through the cites of the world in classical literature.</p>
+                <div class="offer-card__footer">
+                  <p class="offer-card__price">From <span class="offer-card__price-value">€800</span></p>
+                  <a class="button offer-card__button" href="#booking" data-destination="Athens">Details</a>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="offers__item">
+            <article class="offer-card">
+              <img class="offer-card__image" src="images/offer-rome.webp" alt="View of Rome" width="437" height="286" loading="lazy">
+              <div class="offer-card__body">
+                <h3 class="offer-card__title">Rome, Italy</h3>
+                <img class="rating offer-card__rating" src="images/icons/rating.svg" alt="Rating: 5 out of 5" width="136" height="24">
+                <p class="offer-card__text">5 nights and 4 days in 5 star hotel, breakfast and lunch included. Very popular during the renaissance. Passage and going through the cites of the world in classical literature.</p>
+                <div class="offer-card__footer">
+                  <p class="offer-card__price">From <span class="offer-card__price-value">€750</span></p>
+                  <a class="button offer-card__button" href="#booking" data-destination="Rome">Details</a>
+                </div>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="blog section" id="blog">
+      <div class="container">
+        <div class="section__header">
+          <div class="section-title">
+            <h2 class="section-title__heading blog__heading">Our Blog</h2>
+            <p class="section-title__text">An insight the incredible experience in the world</p>
+          </div>
+        </div>
+
+        <article class="blog__content">
+          <img class="blog__image" src="images/blog-italy.webp" alt="Colourful houses on the Italian coast" width="672" height="802" loading="lazy">
+          <div class="blog__article">
+            <h3 class="blog__title">Beautiful Italy<br>Let’s travel</h3>
+            <p class="blog__text">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system and expound the actual teachings of the great explorer of the truth, the master- builder of human happiness. No one rejects, dislike, or avoids plasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremly painful. Nor again is there anyone who loves or pursues.</p>
+            <a class="blog__link" href="#trips">Read More</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="trips section" id="trips">
+      <div class="trips__inner container">
+        <div class="trips__info">
+          <div class="section-title">
+            <h2 class="section-title__heading trips__heading">Trip Planners</h2>
+            <p class="section-title__text section-title__text--small">20 years from now you will be more disappointed by the things that you didn’t do. Stop regretting and start travelling, start throwing off the bowlines.</p>
+          </div>
+          <div class="trips__action">
+            <a class="button trips__button" href="#offers">View all trip plans</a>
+          </div>
+        </div>
+
+        <ul class="trips__list">
+          <li class="trips__item">
+            <article class="trip-card">
+              <button class="trip-card__picture" type="button" aria-expanded="false" aria-label="Show details: Rome City Tour">
+                <img class="trip-card__image" src="images/trip-rome.webp" alt="Colosseum in Rome" width="300" height="399" loading="lazy">
+              </button>
+              <div class="trip-card__details">
+                <p class="trip-card__row"><span class="trip-card__type">Guided Tour</span> <span>€99/Day</span></p>
+                <h3 class="trip-card__title">Rome City Tour</h3>
+                <p class="trip-card__row"><img class="rating" src="images/icons/rating.svg" alt="Rating: 5 out of 5" width="136" height="24"> <span>7 Days tour</span></p>
+              </div>
+            </article>
+          </li>
+          <li class="trips__item">
+            <article class="trip-card trip-card--active">
+              <button class="trip-card__picture" type="button" aria-expanded="true" aria-label="Show details: Paris City Tour">
+                <img class="trip-card__image" src="images/trip-paris.webp" alt="Street in Paris" width="300" height="399" loading="lazy">
+              </button>
+              <div class="trip-card__details">
+                <p class="trip-card__row"><span class="trip-card__type">Guided Tour</span> <span>€95/Day</span></p>
+                <h3 class="trip-card__title">Paris City Tour</h3>
+                <p class="trip-card__row"><img class="rating" src="images/icons/rating.svg" alt="Rating: 5 out of 5" width="136" height="24"> <span>7 Days tour</span></p>
+              </div>
+            </article>
+          </li>
+          <li class="trips__item">
+            <article class="trip-card">
+              <button class="trip-card__picture" type="button" aria-expanded="false" aria-label="Show details: Barcelona City Tour">
+                <img class="trip-card__image" src="images/trip-barcelona.webp" alt="Barcelona at night" width="300" height="399" loading="lazy">
+              </button>
+              <div class="trip-card__details">
+                <p class="trip-card__row"><span class="trip-card__type">Guided Tour</span> <span>€89/Day</span></p>
+                <h3 class="trip-card__title">Barcelona City Tour</h3>
+                <p class="trip-card__row"><img class="rating" src="images/icons/rating.svg" alt="Rating: 5 out of 5" width="136" height="24"> <span>7 Days tour</span></p>
+              </div>
+            </article>
+          </li>
+          <li class="trips__item">
+            <article class="trip-card">
+              <button class="trip-card__picture" type="button" aria-expanded="false" aria-label="Show details: Budapest City Tour">
+                <img class="trip-card__image" src="images/trip-budapest.webp" alt="Budapest by the river" width="300" height="399" loading="lazy">
+              </button>
+              <div class="trip-card__details">
+                <p class="trip-card__row"><span class="trip-card__type">Guided Tour</span> <span>€89/Day</span></p>
+                <h3 class="trip-card__title">Budapest City Tour</h3>
+                <p class="trip-card__row"><img class="rating" src="images/icons/rating.svg" alt="Rating: 5 out of 5" width="136" height="24"> <span>7 Days tour</span></p>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="gallery section" id="gallery">
+      <div class="container">
+        <div class="section__header">
+          <div class="section-title">
+            <h2 class="section-title__heading gallery__heading">Destination Gallery</h2>
+            <p class="section-title__text">Our photo gallery on trip</p>
+          </div>
+          <div class="arrows section__arrows" data-carousel-controls="gallery">
+            <button class="arrows__button arrows__button--prev" type="button" aria-label="Previous photo"></button>
+            <button class="arrows__button arrows__button--next" type="button" aria-label="Next photo"></button>
+          </div>
+        </div>
+
+        <ul class="gallery__list" data-carousel="gallery">
+          <li class="gallery__item"><img class="gallery__image" src="images/gallery-1.webp" alt="Traveler photo 1" width="320" height="469" loading="lazy"></li>
+          <li class="gallery__item"><img class="gallery__image" src="images/gallery-2.webp" alt="Traveler photo 2" width="320" height="469" loading="lazy"></li>
+          <li class="gallery__item"><img class="gallery__image" src="images/gallery-3.webp" alt="Traveler photo 3" width="320" height="469" loading="lazy"></li>
+          <li class="gallery__item"><img class="gallery__image" src="images/gallery-4.webp" alt="Traveler photo 4" width="320" height="469" loading="lazy"></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="testimonials section" id="testimonials">
+      <div class="container testimonials__inner">
+        <div class="section__header testimonials__header">
+          <div class="section-title">
+            <h2 class="section-title__heading testimonials__heading">Traveler’s Experiences</h2>
+            <p class="section-title__text">Here some awesome feedback from our travelers</p>
+          </div>
+        </div>
+
+        <ul class="testimonials__list" data-carousel="testimonials">
+          <li class="testimonials__item">
+            <article class="review">
+              <img class="review__avatar" src="images/avatar-john-doe.webp" alt="John Doe" width="100" height="100" loading="lazy">
+              <p class="review__text">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system and expound the actual teachings of the great explorer of the truth, the master- builder of human happiness.</p>
+              <img class="rating review__rating" src="images/icons/rating.svg" alt="Rating: 5 out of 5" width="136" height="24">
+              <h3 class="review__name">John Doe</h3>
+              <p class="review__role">Accountant</p>
+            </article>
+          </li>
+          <li class="testimonials__item">
+            <article class="review">
+              <img class="review__avatar" src="images/avatar-john-smith.webp" alt="John Smith" width="100" height="100" loading="lazy">
+              <p class="review__text">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system and expound the actual teachings of the great explorer of the truth, the master- builder of human happiness.</p>
+              <img class="rating review__rating" src="images/icons/rating.svg" alt="Rating: 5 out of 5" width="136" height="24">
+              <h3 class="review__name">John Smith</h3>
+              <p class="review__role">Journalist, HWO News</p>
+            </article>
+          </li>
+          <li class="testimonials__item">
+            <article class="review">
+              <img class="review__avatar" src="images/avatar-tamara-bellis.webp" alt="Tamara Bellis" width="100" height="100" loading="lazy">
+              <p class="review__text">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system and expound the actual teachings of the great explorer of the truth, the master- builder of human happiness.</p>
+              <img class="rating review__rating" src="images/icons/rating.svg" alt="Rating: 5 out of 5" width="136" height="24">
+              <h3 class="review__name">Tamara Bellis</h3>
+              <p class="review__role">Managing Director, JTH</p>
+            </article>
+          </li>
+        </ul>
+
+        <div class="arrows testimonials__arrows" data-carousel-controls="testimonials">
+          <button class="arrows__button arrows__button--prev" type="button" aria-label="Previous review"></button>
+          <button class="arrows__button arrows__button--next" type="button" aria-label="Next review"></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter" id="newsletter">
+      <div class="newsletter__card">
+        <h2 class="newsletter__title">Our Newsletter</h2>
+        <form class="newsletter__form" action="#" method="get" novalidate>
+          <label class="newsletter__field">
+            <span class="newsletter__label">Email</span>
+            <input class="newsletter__input" type="email" name="email" placeholder="Enter your email" autocomplete="email">
+          </label>
+          <button class="button newsletter__button" type="submit">Subscribe</button>
+          <p class="newsletter__message" role="status" aria-live="polite" hidden></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contacts">
+    <div class="footer__inner container">
+      <div>
+        <img class="footer__logo" src="images/logo.svg" alt="Travellian" width="234" height="46" loading="lazy">
+        <p class="footer__copyright">Copyright © Travellian 2020 All rights reserved</p>
+      </div>
+
+      <div>
+        <h2 class="footer__heading">Menu</h2>
+        <ul class="footer__list">
+          <li><a class="footer__link" href="#hero">Home</a></li>
+          <li><a class="footer__link" href="#destinations">Explore</a></li>
+          <li><a class="footer__link" href="#trips">Travel</a></li>
+          <li><a class="footer__link" href="#blog">Blog</a></li>
+          <li><a class="footer__link" href="#offers">Pricing</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__heading">Information</h2>
+        <ul class="footer__list">
+          <li><a class="footer__link" href="#destinations">Destinations</a></li>
+          <li><a class="footer__link" href="mailto:info@travellian.com">Supports</a></li>
+          <li><a class="footer__link" href="#">Terms &amp; Conditions</a></li>
+          <li><a class="footer__link" href="#">Privacy</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__heading">Contact Info</h2>
+        <ul class="footer__list">
+          <li><a class="footer__link" href="tel:+123456789">+123 456 789</a></li>
+          <li><a class="footer__link" href="mailto:info@travellian.com">info@travellian.com</a></li>
+          <li><address class="footer__address">1245, New Yourk, USA</address></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__heading">Follow us on</h2>
+        <ul class="footer__socials">
+          <li><a class="footer__social" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><img src="images/icons/facebook.svg" alt="Facebook" width="32" height="32" loading="lazy"></a></li>
+          <li><a class="footer__social" href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer"><img src="images/icons/pinterest.svg" alt="Pinterest" width="40" height="40" loading="lazy"></a></li>
+          <li><a class="footer__social" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><img src="images/icons/instagram.svg" alt="Instagram" width="32" height="32" loading="lazy"></a></li>
+          <li><a class="footer__social" href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><img src="images/icons/twitter.svg" alt="Twitter" width="32" height="32" loading="lazy"></a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

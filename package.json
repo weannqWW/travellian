@@ -1,0 +1,13 @@
+{
+  "name": "travellian",
+  "version": "1.0.0",
+  "description": "Travellian — адаптивный сайт туристического агентства по макету Figma (HTML, SCSS, JavaScript)",
+  "private": true,
+  "scripts": {
+    "build": "sass styles/scss/main.scss styles/css/main.css --no-source-map",
+    "watch": "sass --watch styles/scss/main.scss styles/css/main.css --no-source-map"
+  },
+  "devDependencies": {
+    "sass": "^1.89.0"
+  }
+}
