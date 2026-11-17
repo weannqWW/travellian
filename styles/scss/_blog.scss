@@ -1,0 +1,104 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.blog {
+  padding-bottom: 142px;
+
+  @include laptop {
+    padding-bottom: 100px;
+  }
+
+  @include tablet {
+    padding-bottom: 80px;
+  }
+
+  &__heading::after {
+    width: 150px;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: $gap;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // brightness(0.8) gives the same result as the 20% black layer in the mockup
+  &__image {
+    @include cover-image;
+    height: 802px;
+    border-radius: $radius-card;
+    filter: brightness(0.8);
+
+    @include wide {
+      height: 873px;
+    }
+
+    @include laptop {
+      height: 686px;
+    }
+
+    @include tablet {
+      height: 555px;
+    }
+
+    @include mobile {
+      height: 314px;
+    }
+  }
+
+  // Lets the text column shrink inside the grid
+  &__article {
+    min-width: 0;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+    font-family: $font-title;
+    font-size: 54px;
+    font-weight: 400;
+    line-height: $line-title;
+
+    @include mobile {
+      font-size: 40px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 24px;
+    font-size: 24px;
+    line-height: 52px;
+
+    @include laptop {
+      font-size: 18px;
+      line-height: 42px;
+    }
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    color: $color-accent;
+    font-size: 24px;
+    line-height: 52px;
+    text-decoration: none;
+
+    &::after {
+      content: "";
+      width: 29px;
+      height: 16px;
+      background: url("../../images/icons/arrow-accent.svg") center no-repeat;
+      background-size: contain;
+      transition: transform $transition;
+    }
+
+    &:hover::after {
+      transform: translateX(6px);
+    }
+  }
+}

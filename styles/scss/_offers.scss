@@ -1,0 +1,162 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.offers {
+  padding-bottom: 150px;
+
+  @include wide {
+    padding-bottom: 144px;
+  }
+
+  @include laptop {
+    padding-bottom: 100px;
+  }
+
+  @include tablet {
+    padding-bottom: 240px;
+  }
+
+  @include mobile {
+    padding-bottom: 200px;
+  }
+
+  &__header {
+    @include mobile {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__heading::after {
+    width: 241px;
+  }
+
+  &__list {
+    @include reset-list;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $gap;
+
+    @include tablet {
+      display: block;
+    }
+  }
+
+  &__item:not(:first-child) {
+    @include tablet {
+      display: none;
+    }
+  }
+}
+
+.offer-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  // 10% accent tint over the photo
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 286px;
+    border-radius: $radius-card $radius-card 0 0;
+    background-color: rgba($color-accent, 0.1);
+  }
+
+  &__image {
+    @include cover-image;
+    height: 286px;
+    border-radius: $radius-card $radius-card 0 0;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 40px 24px;
+    border-radius: 0 0 $radius-card $radius-card;
+    background-color: $color-cream;
+
+    @include laptop {
+      padding: 20px 24px;
+    }
+
+    @include mobile {
+      padding: 20px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 8px;
+    color: $color-gray;
+    font-family: $font-card;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: $line-card;
+  }
+
+  &__rating {
+    margin-bottom: 24px;
+  }
+
+  &__text {
+    margin-bottom: 24px;
+    line-height: 21px;
+
+    @include mobile {
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: auto;
+
+    @include mobile {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+  }
+
+  &__price {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: $color-gray;
+    font-size: 20px;
+
+    @include laptop {
+      font-size: 18px;
+    }
+  }
+
+  &__price-value {
+    color: $color-accent;
+    font-size: 40px;
+
+    @include laptop {
+      font-size: 28px;
+    }
+
+    @include tablet {
+      font-size: 32px;
+    }
+  }
+
+  &__button {
+    padding: 20px 40px;
+    text-transform: uppercase;
+
+    @include laptop {
+      padding: 16px 24px;
+    }
+  }
+}

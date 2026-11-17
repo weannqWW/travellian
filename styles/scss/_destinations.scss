@@ -1,0 +1,134 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.destinations {
+  padding-bottom: 142px;
+
+  @include laptop {
+    padding-bottom: 100px;
+  }
+
+  @include tablet {
+    padding-bottom: 240px;
+  }
+
+  &__heading::after {
+    width: 365px;
+
+    @include mobile {
+      width: 227px;
+    }
+  }
+
+  &__text {
+    @include tablet {
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    @include mobile {
+      font-size: 18px;
+      line-height: 21px;
+    }
+  }
+
+  // The row is wider than the container: extra cards wait behind the right edge
+  &__list {
+    @include reset-list;
+    display: flex;
+    gap: $gap;
+
+    @include tablet {
+      display: block;
+    }
+  }
+
+  &__item {
+    flex: 0 0 497px;
+
+    // Tablets and phones show one card at a time
+    &:not(:first-child) {
+      @include tablet {
+        display: none;
+      }
+    }
+  }
+}
+
+.destination-card {
+  position: relative;
+  height: 661px;
+  overflow: hidden;
+  border-radius: $radius-card;
+  color: $color-white;
+
+  @include tablet {
+    height: 456px;
+  }
+
+  @include mobile {
+    height: 320px;
+    border-radius: 16px;
+  }
+
+  // 10% accent tint over the photo
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba($color-accent, 0.1);
+  }
+
+  &__image {
+    @include cover-image;
+    height: 100%;
+  }
+
+  &__content {
+    position: absolute;
+    right: 24px;
+    bottom: 40px;
+    left: 24px;
+    z-index: 1;
+
+    @include tablet {
+      right: 20px;
+      left: 20px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 17px;
+    font-family: $font-title;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 37px;
+
+    @include mobile {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+
+  &__location {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 24px;
+    line-height: 28px;
+
+    @include mobile {
+      font-size: 18px;
+      line-height: 21px;
+    }
+
+    &::before {
+      content: "";
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      background: url("../../images/icons/location.svg") center no-repeat;
+      background-size: contain;
+    }
+  }
+}

@@ -1,0 +1,56 @@
+@use "variables" as *;
+
+// Screens from 1920px
+@mixin wide {
+  @media (min-width: $screen-wide) {
+    @content;
+  }
+}
+
+// Screens up to 1279px (frame 1152)
+@mixin laptop {
+  @media (max-width: $screen-laptop) {
+    @content;
+  }
+}
+
+// Screens up to 1023px (frame 768)
+@mixin tablet {
+  @media (max-width: $screen-tablet) {
+    @content;
+  }
+}
+
+// Screens up to 767px (frame 320)
+@mixin mobile {
+  @media (max-width: $screen-mobile) {
+    @content;
+  }
+}
+
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin reset-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+// Photo that fills its box without distortion
+@mixin cover-image {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+@mixin focus-ring {
+  outline: 3px solid $color-accent;
+  outline-offset: 3px;
+}

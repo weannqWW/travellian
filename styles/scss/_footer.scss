@@ -1,0 +1,86 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.footer {
+  padding: 240px 0 140px;
+  background-color: $color-dark;
+  color: $color-white;
+
+  @include tablet {
+    padding: 100px 0 140px;
+  }
+
+  @include mobile {
+    padding: 80px 0;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    gap: $gap;
+
+    @include tablet {
+      flex-direction: column;
+      gap: 60px;
+      padding: 0 32px;
+    }
+
+    @include mobile {
+      padding: 0 16px;
+    }
+  }
+
+  &__logo {
+    width: 234px;
+    height: auto;
+    margin-bottom: 16px;
+  }
+
+  &__copyright {
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  &__heading {
+    margin-bottom: 16px;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28px;
+  }
+
+  &__list {
+    @include reset-list;
+    display: grid;
+    gap: 12px;
+    line-height: 21px;
+  }
+
+  &__link {
+    text-decoration: none;
+    transition: color $transition;
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+
+  &__address {
+    font-style: normal;
+  }
+
+  &__socials {
+    @include reset-list;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  &__social {
+    display: block;
+    transition: opacity $transition;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}

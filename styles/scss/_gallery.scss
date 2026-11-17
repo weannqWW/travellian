@@ -1,0 +1,59 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.gallery {
+  padding-bottom: 142px;
+
+  @include laptop {
+    padding-bottom: 100px;
+  }
+
+  @include tablet {
+    padding-bottom: 240px;
+  }
+
+  &__heading::after {
+    width: 283px;
+  }
+
+  &__list {
+    @include reset-list;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $gap;
+    padding: 37px 0;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+      padding: 0;
+    }
+  }
+
+  // The second photo stands higher than the others
+  &__item:nth-child(2) {
+    transform: translateY(-37px);
+
+    @include tablet {
+      transform: none;
+    }
+  }
+
+  &__image {
+    @include cover-image;
+    height: 469px;
+    border-radius: $radius-card;
+    filter: brightness(0.8);
+
+    @include wide {
+      height: 570px;
+    }
+
+    @include laptop {
+      height: 351px;
+    }
+
+    @include mobile {
+      height: 320px;
+    }
+  }
+}

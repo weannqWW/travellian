@@ -1,0 +1,132 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.testimonials {
+  padding-bottom: 134px;
+
+  @include wide {
+    padding-bottom: 126px;
+  }
+
+  @include laptop {
+    padding-bottom: 84px;
+  }
+
+  @include tablet {
+    padding-bottom: 80px;
+  }
+
+  &__inner {
+    @include tablet {
+      padding: 0 32px;
+    }
+
+    @include mobile {
+      padding: 0 16px;
+    }
+  }
+
+  // Extra space: the round photo sticks out above the card
+  &__header {
+    margin-bottom: 160px;
+
+    @include mobile {
+      margin-bottom: 100px;
+    }
+  }
+
+  &__heading {
+    @include mobile {
+      font-size: 48px;
+      line-height: 64px;
+    }
+
+    &::after {
+      width: 347px;
+    }
+  }
+
+  // The row is wider than the container: other reviews wait behind the right edge
+  &__list {
+    @include reset-list;
+    display: flex;
+    gap: $gap;
+  }
+
+  &__item {
+    flex: 0 0 562px;
+
+    @include wide {
+      flex-basis: 663px;
+    }
+
+    @include laptop {
+      flex-basis: 500px;
+    }
+
+    @include mobile {
+      flex-basis: 100%;
+    }
+  }
+
+  &__arrows {
+    justify-content: flex-end;
+    margin-top: 160px;
+
+    @include tablet {
+      justify-content: center;
+    }
+
+    @include mobile {
+      margin-top: 100px;
+    }
+  }
+}
+
+.review {
+  position: relative;
+  height: 100%;
+  padding: 60px 40px 40px;
+  border-radius: $radius-button;
+  background-color: $color-light;
+  color: $color-gray;
+
+  @include mobile {
+    padding: 60px 20px 32px;
+  }
+
+  &__avatar {
+    position: absolute;
+    top: -65px;
+    left: 40px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+
+    @include mobile {
+      left: 20px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 20px;
+    line-height: 23px;
+  }
+
+  &__rating {
+    margin-bottom: 20px;
+  }
+
+  &__name {
+    margin-bottom: 4px;
+    font-family: $font-title;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+  }
+
+  &__role {
+    line-height: 21px;
+  }
+}

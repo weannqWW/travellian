@@ -1,0 +1,134 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+@font-face {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url("../../fonts/playfair-display-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+  src: url("../../fonts/rubik-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 200 1000;
+  font-display: swap;
+  src: url("../../fonts/mulish-latin.woff2") format("woff2");
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+// People who turn animations off get instant jumps to sections
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.page {
+  min-width: 320px;
+  margin: 0;
+  background-color: $color-white;
+  color: $color-dark;
+  font-family: $font-text;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: $line-text;
+  -webkit-text-size-adjust: 100%;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  @include focus-ring;
+}
+
+.container {
+  width: 100%;
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+
+  @include tablet {
+    padding: 0 20px;
+  }
+
+  @include mobile {
+    padding: 0 16px;
+  }
+}
+
+// Common section: paddings and the row with a title and arrows
+.section {
+  position: relative;
+  padding: 140px 0;
+  overflow: hidden;
+
+  @include laptop {
+    padding: 100px 0;
+  }
+
+  @include tablet {
+    padding: 80px 0;
+  }
+
+  &__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: $gap;
+    margin-bottom: 100px;
+
+    &--reverse {
+      flex-direction: row-reverse;
+    }
+
+    @include tablet {
+      display: block;
+    }
+  }
+
+  // On tablets and phones the arrows stand under the cards, in the centre
+  &__arrows {
+    @include tablet {
+      position: absolute;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}

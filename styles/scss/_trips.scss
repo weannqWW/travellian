@@ -1,0 +1,195 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.trips {
+  padding-bottom: 142px;
+
+  @include laptop {
+    padding-bottom: 100px;
+  }
+
+  @include tablet {
+    padding-bottom: 80px;
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+
+    @include wide {
+      gap: 100px;
+    }
+
+    @include tablet {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+
+  &__info {
+    flex: 0 0 394px;
+
+    // The 1920 frame places this block 62px lower
+    @include wide {
+      margin-top: 124px;
+    }
+
+    @include tablet {
+      flex-basis: auto;
+      max-width: 332px;
+    }
+  }
+
+  &__heading::after {
+    width: 231px;
+  }
+
+  // Button with two decorative squares behind its corners
+  &__action {
+    position: relative;
+    display: inline-block;
+    margin-top: 32px;
+    padding: 14.5px 18px 16px 14px;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 43px;
+      height: 43px;
+    }
+
+    &::before {
+      top: 0;
+      left: 0;
+      background-color: $color-dark;
+    }
+
+    &::after {
+      right: 0;
+      bottom: 0;
+      background-color: $color-gray;
+    }
+  }
+
+  &__button {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+    font-size: 18px;
+  }
+
+  // The row is wider than the container, like in the mockup
+  &__list {
+    @include reset-list;
+    display: flex;
+    align-items: center;
+    gap: $gap;
+
+    @include tablet {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 40px;
+    }
+  }
+
+  &__item {
+    flex: 0 0 300px;
+
+    @include laptop {
+      flex-basis: 250px;
+    }
+
+    @include tablet {
+      flex-basis: auto;
+    }
+  }
+}
+
+.trip-card {
+  &__picture {
+    @include reset-button;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    border-radius: $radius-card;
+
+    @include tablet {
+      cursor: default;
+    }
+  }
+
+  &__image {
+    @include cover-image;
+    height: 399px;
+    filter: brightness(0.8);
+    transition: filter $transition;
+
+    @include laptop {
+      height: 350px;
+    }
+
+    @include mobile {
+      height: 320px;
+    }
+  }
+
+  &__picture:hover &__image {
+    filter: brightness(0.9);
+  }
+
+  // Details are visible only in the selected card; tablets and phones show all of them
+  &__details {
+    display: none;
+    padding: 20px 0;
+
+    @include tablet {
+      display: block;
+    }
+  }
+
+  &--active &__details {
+    display: block;
+  }
+
+  &__row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    line-height: 21px;
+
+    @include tablet {
+      font-size: 24px;
+      line-height: 28px;
+    }
+
+    @include mobile {
+      font-size: 18px;
+      line-height: 21px;
+    }
+  }
+
+  &__type {
+    text-transform: uppercase;
+  }
+
+  &__title {
+    margin: 12px 0;
+    font-family: $font-title;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 37px;
+
+    @include tablet {
+      font-size: 32px;
+      line-height: 43px;
+    }
+
+    @include mobile {
+      font-size: 28px;
+      line-height: 37px;
+    }
+  }
+}

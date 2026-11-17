@@ -1,0 +1,159 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+// The card lies half on the page and half on the footer
+.newsletter {
+  position: relative;
+  z-index: 1;
+  margin-bottom: -115px;
+  padding: 0 36px;
+
+  @include wide {
+    margin-bottom: -123px;
+  }
+
+  @include laptop {
+    margin-bottom: -116px;
+  }
+
+  @include tablet {
+    margin-bottom: 0;
+    padding: 0 18px;
+  }
+
+  @include mobile {
+    padding: 0 16px;
+  }
+
+  &__card {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+    max-width: 1262px;
+    margin: 0 auto;
+    padding: 60px 80px;
+    border-radius: $radius-card;
+    background-color: $color-white;
+    box-shadow: 0 0 4px rgba($color-black, 0.3);
+
+    @include laptop {
+      align-items: center;
+      padding: 60px 40px;
+    }
+
+    @include tablet {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 40px;
+    }
+
+    @include mobile {
+      padding: 40px 20px;
+      border-radius: 20px;
+    }
+  }
+
+  &__title {
+    color: $color-gray;
+    font-family: $font-title;
+    font-size: 64px;
+    font-weight: 400;
+    line-height: $line-title;
+    white-space: nowrap;
+
+    @include laptop {
+      font-size: 54px;
+    }
+
+    @include mobile {
+      font-size: 40px;
+      white-space: normal;
+    }
+  }
+
+  &__form {
+    position: relative;
+    display: flex;
+    flex: 0 1 567px;
+    align-items: flex-end;
+    gap: $gap;
+
+    @include laptop {
+      flex-basis: 573px;
+    }
+
+    @include tablet {
+      flex-basis: auto;
+    }
+
+    @include mobile {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+
+  &__field {
+    display: block;
+    flex-grow: 1;
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: 16px;
+    color: $color-gray;
+    font-size: 20px;
+  }
+
+  &__input {
+    display: block;
+    width: 100%;
+    height: 72px;
+    padding: 24px 40px;
+    border: 0;
+    border-radius: $radius-button;
+    background-color: $color-peach;
+    color: $color-dark;
+    font-family: $font-text;
+    font-size: 20px;
+    line-height: $line-text;
+
+    &::placeholder {
+      color: $color-accent;
+      opacity: 1;
+    }
+
+    @include mobile {
+      padding: 24px 20px;
+      text-align: center;
+    }
+  }
+
+  &__button {
+    flex: 0 0 163px;
+    height: 73px;
+    padding: 16px 20px;
+
+    @include mobile {
+      flex-basis: auto;
+    }
+  }
+
+  // Result of the check; it does not move other elements on wide screens
+  &__message {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 10px;
+    color: $color-dark;
+    font-size: 16px;
+
+    @include mobile {
+      position: static;
+      margin-top: 0;
+    }
+
+    &--error {
+      color: $color-accent-dark;
+    }
+  }
+}

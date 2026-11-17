@@ -1,0 +1,410 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+// Background photo with a 30% dark layer, as in the mockup
+@mixin hero-photo($file) {
+  background-image: linear-gradient(rgba($color-black, 0.3), rgba($color-black, 0.3)), url("../../images/#{$file}");
+}
+
+.hero {
+  position: relative;
+  background-color: $color-dark;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: $color-white;
+  transition: background-image 0.5s ease;
+
+  // One modifier per slide; the script switches them.
+  // The first photo is framed like in the mockup: each frame shows its own part of it.
+  &--slide-1 {
+    @include hero-photo("hero-1.webp");
+    background-position: center 92.6%;
+    background-size: auto 212%;
+
+    @include wide {
+      background-position: center 97.5%;
+      background-size: cover;
+    }
+
+    @include laptop {
+      background-position: center bottom;
+      background-size: cover;
+    }
+
+    @include tablet {
+      background-position: left 85%;
+      background-size: auto 182%;
+    }
+
+    @include mobile {
+      background-position: 8% 85%;
+    }
+  }
+
+  &--slide-2 {
+    @include hero-photo("hero-2.webp");
+  }
+
+  &--slide-3 {
+    @include hero-photo("hero-3.webp");
+  }
+
+  &--slide-4 {
+    @include hero-photo("hero-4.webp");
+  }
+
+  &--slide-5 {
+    @include hero-photo("hero-5.webp");
+  }
+
+  &__inner {
+    padding-top: 270px;
+    padding-bottom: 270px;
+
+    @include laptop {
+      padding-top: 200px;
+      padding-bottom: 150px;
+    }
+
+    @include tablet {
+      padding-top: 214px;
+      padding-bottom: 75px;
+    }
+
+    @include mobile {
+      padding-top: 198px;
+      padding-bottom: 100px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    font-family: $font-title;
+    font-size: 84px;
+    font-weight: 400;
+    line-height: $line-title;
+
+    @include laptop {
+      font-size: 64px;
+    }
+
+    @include tablet {
+      font-size: 54px;
+    }
+
+    @include mobile {
+      font-size: 40px;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 170px;
+    font-size: 24px;
+    line-height: 28px;
+
+    @include laptop {
+      margin-bottom: 140px;
+    }
+
+    @include tablet {
+      margin-bottom: 100px;
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    @include mobile {
+      font-size: 18px;
+      line-height: 21px;
+    }
+  }
+
+  // Dots and arrows that switch the background photo
+  &__slider {
+    position: absolute;
+    top: 483px;
+    right: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 23px;
+
+    @include wide {
+      right: 80px;
+    }
+
+    @include laptop {
+      top: 304px;
+    }
+
+    @include tablet {
+      top: 280px;
+      right: 36px;
+    }
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__dots {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__dot {
+    @include reset-button;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: $color-white;
+    transition: background-color $transition;
+
+    &--active {
+      background-color: $color-accent;
+    }
+  }
+
+  &__arrows {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  &__arrow {
+    @include reset-button;
+    width: 16px;
+    height: 8px;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &--prev {
+      background-image: url("../../images/icons/chevron-up.svg");
+    }
+
+    &--next {
+      background-image: url("../../images/icons/chevron-down-accent.svg");
+    }
+  }
+}
+
+// Trip form on the first screen
+.booking {
+  position: relative;
+  display: flex;
+  gap: 100px;
+  width: 85.25%;
+  border-radius: 0 20px 20px 0;
+  background-color: $color-white;
+  color: $color-dark;
+
+  @include wide {
+    width: 83%;
+  }
+
+  @include laptop {
+    width: 94.12%;
+  }
+
+  @include tablet {
+    width: 87.8%;
+    padding-left: 12px;
+  }
+
+  @include mobile {
+    flex-direction: column;
+    gap: 60px;
+    width: 100%;
+    padding-left: 0;
+    border-radius: 16px;
+  }
+
+  // White background continues to the left edge of the screen
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 100%;
+    bottom: 0;
+    width: 100vw;
+    background-color: $color-white;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__fields {
+    display: grid;
+    flex-grow: 1;
+    grid-template-columns: repeat(4, 1fr);
+    align-self: center;
+    gap: 40px;
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      align-self: stretch;
+      padding: 20px;
+    }
+  }
+
+  &__field {
+    display: block;
+    min-width: 0;
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: 12px;
+    color: $color-gray;
+    font-size: 16px;
+    text-transform: uppercase;
+
+    @include mobile {
+      font-size: 14px;
+    }
+  }
+
+  // Text field, select and the visible part of a date field look the same
+  &__input,
+  &__date {
+    display: block;
+    width: 100%;
+    padding: 0 0 9px;
+    border: 0;
+    border-bottom: 1px solid $color-black;
+    border-radius: 0;
+    background-color: transparent;
+    color: $color-dark;
+    font-family: $font-title;
+    font-size: 18px;
+    line-height: $line-title;
+
+    @include wide {
+      font-size: 20px;
+    }
+
+    @include laptop {
+      font-size: 16px;
+    }
+
+    @include mobile {
+      font-size: 14px;
+    }
+  }
+
+  // 24px icon plus 10px under it, as in the mockup
+  &__input--select,
+  &__date {
+    min-height: 34px;
+    padding-right: 28px;
+    background-image: url("../../images/icons/chevron-down.svg");
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+  }
+
+  &__input--select {
+    appearance: none;
+    cursor: pointer;
+  }
+
+  &__field--invalid &__input,
+  &__field--invalid &__date {
+    border-bottom-color: $color-accent;
+  }
+
+  &__date {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+
+    &:focus-within {
+      @include focus-ring;
+    }
+  }
+
+  &__date-text {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  // The real date input covers the text and stays invisible
+  &__date-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  &__submit {
+    @include reset-button;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 12px;
+    width: 170px;
+    padding: 60px 20px;
+    border-radius: 0 20px 20px 0;
+    background-color: $color-accent;
+    color: $color-white;
+    font-family: $font-title;
+    font-size: 36px;
+    line-height: $line-title;
+    text-align: left;
+    transition: background-color $transition;
+
+    &:hover {
+      background-color: $color-accent-dark;
+    }
+
+    @include laptop {
+      padding: 40px 20px;
+    }
+
+    @include tablet {
+      padding: 60px 20px;
+    }
+
+    @include mobile {
+      width: 100%;
+      padding: 40px 20px;
+      border-radius: 0 0 16px 16px;
+    }
+  }
+
+  &__submit-text {
+    flex-grow: 1;
+  }
+
+  &__submit-icon {
+    flex-shrink: 0;
+  }
+
+  // Result of the check; it does not move other elements
+  &__message {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 16px;
+    padding: 10px 16px;
+    border-radius: $radius-button;
+    background-color: $color-dark;
+    color: $color-white;
+    font-size: 18px;
+
+    &--error {
+      background-color: $color-accent;
+    }
+  }
+}

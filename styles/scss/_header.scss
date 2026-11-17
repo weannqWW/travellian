@@ -1,0 +1,170 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+// The header lies over the first screen
+.header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  color: $color-white;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $gap;
+    width: 100%;
+    max-width: $container-max;
+    margin: 0 auto;
+    padding: 32px $container-padding;
+
+    @include tablet {
+      padding: 32px 20px;
+    }
+
+    @include mobile {
+      padding: 24px 32px;
+    }
+  }
+
+  &__logo {
+    width: 234px;
+    height: auto;
+
+    @include mobile {
+      width: 140px;
+    }
+  }
+
+  // Menu and buttons: a row on desktop, a drop-down panel on tablets and phones
+  &__panel {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    gap: $gap;
+
+    @include tablet {
+      position: absolute;
+      top: 100%;
+      right: 20px;
+      left: 20px;
+      display: none;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 32px;
+      border-radius: 20px;
+      background-color: $color-dark;
+    }
+
+    @include mobile {
+      right: 16px;
+      left: 16px;
+      padding: 24px;
+    }
+  }
+
+  &--open &__panel {
+    @include tablet {
+      display: flex;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+
+    @include tablet {
+      justify-content: space-between;
+    }
+  }
+
+  &__login {
+    font-size: 20px;
+    text-decoration: none;
+    transition: color $transition;
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+
+  // Three lines that turn into a cross when the menu is open
+  &__burger {
+    @include reset-button;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    width: 50px;
+    height: 50px;
+    padding: 0 6px;
+
+    @include tablet {
+      display: flex;
+    }
+  }
+
+  &__burger-line {
+    display: block;
+    height: 2px;
+    border-radius: 1px;
+    background-color: $color-white;
+    transition: transform $transition, opacity $transition;
+  }
+
+  &--open &__burger-line:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+  }
+
+  &--open &__burger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  &--open &__burger-line:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+  }
+}
+
+.menu {
+  // Equal free space on both sides keeps the menu between the logo and the buttons
+  margin: 0 auto;
+
+  @include tablet {
+    margin: 0;
+  }
+
+  &__list {
+    @include reset-list;
+    display: flex;
+    align-items: center;
+    gap: $gap;
+
+    @include tablet {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+  }
+
+  &__link {
+    display: block;
+    padding-bottom: 2px;
+    border-bottom: 3px solid transparent;
+    font-size: 20px;
+    line-height: 24px;
+    text-decoration: none;
+    transition: border-color $transition;
+
+    &:hover {
+      border-color: $color-accent;
+    }
+
+    &--active {
+      border-color: $color-accent;
+      font-weight: 500;
+    }
+  }
+}
