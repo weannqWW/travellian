@@ -10,7 +10,9 @@
 
 Сборка не нужна: готовый CSS уже лежит в `styles/css/main.css`.
 
-- Простой способ — открыть `index.html` в браузере.
+Опубликованная версия: https://weannqww.github.io/travellian/
+
+- Простой способ — открыть `index.html` в браузере. В Chrome страница так открывается полностью. Safari при открытии файла с диска не загружает шрифты (ограничение Safari для `file://`), поэтому для Safari лучше открыть ссылку выше или Live Server.
 - Удобнее — расширение Live Server в VS Code: правой кнопкой по `index.html` → «Open with Live Server».
 
 ## Компиляция стилей
