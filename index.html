@@ -7,6 +7,20 @@
   <title>Travellian — Travel Agency</title>
   <link rel="icon" href="images/icons/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="images/hero-1.webp" as="image" type="image/webp" fetchpriority="high">
+  <script>
+    // Start loading the first-screen fonts early. Skipped for file://, where Chrome blocks font preloading.
+    if (location.protocol !== 'file:') {
+      for (const name of ['playfair-display-latin', 'rubik-latin']) {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'font';
+        link.type = 'font/woff2';
+        link.href = 'fonts/' + name + '.woff2';
+        link.crossOrigin = 'anonymous';
+        document.head.append(link);
+      }
+    }
+  </script>
   <link rel="stylesheet" href="styles/css/main.css">
   <script src="scripts/main.js" defer></script>
 </head>
