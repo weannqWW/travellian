@@ -1848,9 +1848,14 @@ select:focus-visible {
 
 .not-found {
   display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.not-found__main {
+  display: flex;
+  flex-grow: 1;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
 }
 .not-found__code {
   font-family: "Playfair Display", Georgia, serif;
@@ -1862,4 +1867,12 @@ select:focus-visible {
   .not-found__code {
     font-size: 100px;
   }
+}
+.not-found__footer {
+  padding: 24px 16px;
+  border-top: 1px solid #f5f6f7;
+  color: #767e86;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
 }
