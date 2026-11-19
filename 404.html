@@ -4,92 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
-  <title>Page not found — Travellian</title>
-  <script>
-    // GitHub Pages shows this page for any wrong address, even a nested one (/travellian/a/b/),
-    // so on the site all links and files are counted from the site folder.
-    if (location.hostname.endsWith('github.io')) {
-      const base = document.createElement('base');
-      base.href = '/travellian/';
-      document.head.append(base);
-    }
-  </script>
+  <title>404 — Travellian</title>
   <link rel="icon" href="images/icons/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles/css/main.css">
 </head>
 <body class="page">
-  <header class="header">
-    <div class="header__inner">
-      <a href="index.html"><img class="header__logo" src="images/logo.svg" alt="Travellian — home page" width="234" height="46"></a>
-    </div>
-  </header>
-
-  <main>
-    <section class="not-found">
-      <div class="not-found__inner container">
-        <p class="not-found__label">Page not found</p>
-        <p class="not-found__code">404</p>
-        <h1 class="not-found__title">Looks like you took a wrong turn</h1>
-        <p class="not-found__text">This page doesn’t exist or has been moved. Even the best travelers get lost sometimes — let’s get you back on the route.</p>
-
-        <div class="not-found__actions">
-          <a class="button" href="index.html">Back to home</a>
-          <a class="not-found__link" href="index.html#destinations">
-            Explore destinations
-            <img src="images/icons/arrow-white.svg" alt="" width="22" height="15">
-          </a>
-        </div>
-      </div>
-    </section>
+  <main class="not-found">
+    <h1 class="not-found__code">404</h1>
   </main>
-
-  <footer class="footer footer--compact">
-    <div class="footer__inner container">
-      <div>
-        <img class="footer__logo" src="images/logo.svg" alt="Travellian" width="234" height="46" loading="lazy">
-        <p class="footer__copyright">Copyright © Travellian 2020 All rights reserved</p>
-      </div>
-
-      <div>
-        <h2 class="footer__heading">Menu</h2>
-        <ul class="footer__list">
-          <li><a class="footer__link" href="index.html">Home</a></li>
-          <li><a class="footer__link" href="index.html#destinations">Explore</a></li>
-          <li><a class="footer__link" href="index.html#trips">Travel</a></li>
-          <li><a class="footer__link" href="index.html#blog">Blog</a></li>
-          <li><a class="footer__link" href="index.html#offers">Pricing</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h2 class="footer__heading">Information</h2>
-        <ul class="footer__list">
-          <li><a class="footer__link" href="index.html#destinations">Destinations</a></li>
-          <li><a class="footer__link" href="mailto:info@travellian.com">Supports</a></li>
-          <li><a class="footer__link" href="#">Terms &amp; Conditions</a></li>
-          <li><a class="footer__link" href="#">Privacy</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h2 class="footer__heading">Contact Info</h2>
-        <ul class="footer__list">
-          <li><a class="footer__link" href="tel:+123456789">+123 456 789</a></li>
-          <li><a class="footer__link" href="mailto:info@travellian.com">info@travellian.com</a></li>
-          <li><address class="footer__address">1245, New Yourk, USA</address></li>
-        </ul>
-      </div>
-
-      <div>
-        <h2 class="footer__heading">Follow us on</h2>
-        <ul class="footer__socials">
-          <li><a class="footer__social" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><img src="images/icons/facebook.svg" alt="Facebook" width="32" height="32" loading="lazy"></a></li>
-          <li><a class="footer__social" href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer"><img src="images/icons/pinterest.svg" alt="Pinterest" width="40" height="40" loading="lazy"></a></li>
-          <li><a class="footer__social" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><img src="images/icons/instagram.svg" alt="Instagram" width="32" height="32" loading="lazy"></a></li>
-          <li><a class="footer__social" href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><img src="images/icons/twitter.svg" alt="Twitter" width="32" height="32" loading="lazy"></a></li>
-        </ul>
-      </div>
-    </div>
-  </footer>
 </body>
 </html>
