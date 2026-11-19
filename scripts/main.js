@@ -1,23 +1,25 @@
-// Travellian: page behaviour in plain JavaScript, without libraries.
+// Travellian: поведение страницы на чистом JavaScript, без библиотек.
 
-// ---------- Mobile menu ----------
+// ---------- Мобильное меню ----------
 
 const header = document.querySelector('.header');
 const burger = document.querySelector('.header__burger');
 const menuPanel = document.querySelector('.header__panel');
 
+// Открывает или закрывает меню (true — открыть, false — закрыть)
 function setMenuOpen(isOpen) {
   header.classList.toggle('header--open', isOpen);
   burger.setAttribute('aria-expanded', String(isOpen));
   burger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
 }
 
+// Вешает обработчики: бургер, клик по ссылке, клавиша Esc
 function initMenu() {
   burger.addEventListener('click', () => {
     setMenuOpen(!header.classList.contains('header--open'));
   });
 
-  // A click on any link inside the panel closes the menu
+  // Клик по любой ссылке в панели закрывает меню
   menuPanel.addEventListener('click', (event) => {
     if (event.target.closest('a')) {
       setMenuOpen(false);
@@ -31,10 +33,10 @@ function initMenu() {
   });
 }
 
-// ---------- Carousels ----------
+// ---------- Карусели ----------
 
-// Moves the first card to the end (next) or the last card to the start (prev),
-// then plays a short animation so the change looks like sliding.
+// Переносит первую карточку в конец (вперёд) или последнюю в начало (назад),
+// затем проигрывает короткую анимацию, чтобы смена выглядела как прокрутка.
 function slideCarousel(list, direction) {
   const firstCard = list.firstElementChild;
   const secondCard = firstCard.nextElementSibling;
@@ -51,7 +53,7 @@ function slideCarousel(list, direction) {
     return;
   }
 
-  // Cards in a row slide sideways; a single visible card fades in
+  // Карточки в ряд сдвигаются вбок, одна видимая карточка плавно появляется
   const shift = direction === 'next' ? step : -step;
   const frames = step > 0
     ? [{ transform: `translateX(${shift}px)` }, { transform: 'translateX(0)' }]
@@ -60,6 +62,7 @@ function slideCarousel(list, direction) {
   list.animate(frames, { duration: 400, easing: 'ease' });
 }
 
+// Находит все карусели на странице и подключает к ним стрелки
 function initCarousels() {
   document.querySelectorAll('[data-carousel-controls]').forEach((controls) => {
     const name = controls.dataset.carouselControls;
@@ -75,14 +78,15 @@ function initCarousels() {
   });
 }
 
-// ---------- Background slider on the first screen ----------
+// ---------- Слайдер фона на первом экране ----------
 
 const hero = document.querySelector('.hero');
 const heroDots = document.querySelectorAll('.hero__dot');
 let currentSlide = 1;
 
+// Показывает слайд с нужным номером и подсвечивает его точку
 function showHeroSlide(number) {
-  // Keep the number inside 1..5: after the last slide comes the first one
+  // Номер слайда держим в пределах 1..5: после последнего идёт первый
   const total = heroDots.length;
   const nextSlide = ((number - 1 + total) % total) + 1;
 
@@ -96,6 +100,7 @@ function showHeroSlide(number) {
   });
 }
 
+// Подключает точки и стрелки слайдера
 function initHeroSlider() {
   heroDots.forEach((dot, index) => {
     dot.addEventListener('click', () => showHeroSlide(index + 1));
@@ -110,9 +115,9 @@ function initHeroSlider() {
   });
 }
 
-// ---------- Trip cards ----------
+// ---------- Карточки туров (Trip Planners) ----------
 
-// A click on a photo shows the details of this trip and hides the others
+// Клик по фото показывает описание этого тура и скрывает остальные
 function initTripCards() {
   const cards = document.querySelectorAll('.trip-card');
 
@@ -129,12 +134,13 @@ function initTripCards() {
   });
 }
 
-// ---------- Trip form ----------
+// ---------- Форма поездки на первом экране ----------
 
+// Названия дней и месяцев для вывода даты
 const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-// 1 -> "st", 2 -> "nd", 3 -> "rd", 11 -> "th"
+// Окончание числа в дате: 1 -> "st", 2 -> "nd", 3 -> "rd", 11 -> "th"
 function getDaySuffix(day) {
   if (day >= 11 && day <= 13) {
     return 'th';
@@ -157,7 +163,7 @@ function getDaySuffix(day) {
   return 'th';
 }
 
-// "2026-11-16" -> "Mon, 16th Nov 2026"
+// Переводит дату в формат макета: "2026-11-16" -> "Mon, 16th Nov 2026"
 function formatDate(value) {
   const [year, month, day] = value.split('-').map(Number);
   const date = new Date(year, month - 1, day);
@@ -165,7 +171,7 @@ function formatDate(value) {
   return `${WEEKDAYS[date.getDay()]}, ${day}${getDaySuffix(day)} ${MONTHS[month - 1]} ${year}`;
 }
 
-// Returns the first problem as { field, text } or null when everything is filled in
+// Возвращает первую ошибку как { field, text } или null, если всё заполнено
 function findBookingError(form) {
   const destination = form.elements.destination.value.trim();
   const checkIn = form.elements['check-in'].value;
@@ -183,7 +189,7 @@ function findBookingError(form) {
     return { field: 'check-out', text: 'Choose a check-out date.' };
   }
 
-  // Dates in the form YYYY-MM-DD can be compared as strings
+  // Даты в виде ГГГГ-ММ-ДД можно сравнивать как строки
   if (checkOut <= checkIn) {
     return { field: 'check-out', text: 'Check-out must be later than check-in.' };
   }
@@ -191,11 +197,12 @@ function findBookingError(form) {
   return null;
 }
 
+// Проверка формы поездки и вывод выбранных дат
 function initBookingForm() {
   const form = document.querySelector('.booking');
   const message = form.querySelector('.booking__message');
 
-  // The date input is invisible: a click opens the calendar, the text shows the chosen date
+  // Поле даты невидимое: клик открывает календарь, а текст рядом показывает выбранную дату
   form.querySelectorAll('.booking__date-input').forEach((input) => {
     input.addEventListener('click', () => {
       if (input.showPicker) {
@@ -234,7 +241,7 @@ function initBookingForm() {
     message.hidden = false;
   });
 
-  // "Details" in an offer card puts its city into the form
+  // Кнопка "Details" в карточке предложения подставляет город в форму
   document.querySelectorAll('[data-destination]').forEach((link) => {
     link.addEventListener('click', () => {
       form.elements.destination.value = link.dataset.destination;
@@ -243,10 +250,12 @@ function initBookingForm() {
   });
 }
 
-// ---------- Newsletter form ----------
+// ---------- Форма подписки ----------
 
+// Простой шаблон email: что-то@что-то.домен
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
+// Возвращает текст ошибки или null, если email правильный
 function findEmailError(email) {
   if (email === '') {
     return 'Enter your email.';
@@ -259,6 +268,7 @@ function findEmailError(email) {
   return null;
 }
 
+// Проверка формы подписки
 function initNewsletterForm() {
   const form = document.querySelector('.newsletter__form');
   const input = form.elements.email;
@@ -274,8 +284,8 @@ function initNewsletterForm() {
     message.hidden = false;
   });
 
-  // "Login" and "Sign up" lead to this form and put the cursor into the field.
-  // The timer waits until the browser has handled the jump to #newsletter.
+  // "Login" и "Sign up" ведут к этой форме и ставят курсор в поле email.
+  // Таймер ждёт, пока браузер закончит переход к #newsletter.
   document.querySelectorAll('a[href="#newsletter"]').forEach((link) => {
     link.addEventListener('click', () => {
       setTimeout(() => input.focus({ preventScroll: true }), 0);
@@ -283,7 +293,7 @@ function initNewsletterForm() {
   });
 }
 
-// ---------- Start ----------
+// ---------- Запуск ----------
 
 initMenu();
 initCarousels();
