@@ -1,12 +1,18 @@
 @use "variables" as *;
 @use "mixins" as *;
 
-// Page 404: white screen with the code in the middle
+// Page 404: white screen with the code in the middle and a short footer at the bottom
 .not-found {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
   min-height: 100vh;
+
+  &__main {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+  }
 
   &__code {
     font-family: $font-title;
@@ -17,5 +23,14 @@
     @include mobile {
       font-size: 100px;
     }
+  }
+
+  &__footer {
+    padding: 24px 16px;
+    border-top: 1px solid $color-light;
+    color: $color-gray;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
   }
 }
