@@ -8,7 +8,7 @@
   <link rel="icon" href="images/icons/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="images/hero-1.webp" as="image" type="image/webp" fetchpriority="high">
   <script>
-    // Start loading the first-screen fonts early. Skipped for file://, where Chrome blocks font preloading.
+    // Заранее загружает шрифты первого экрана. При открытии с диска (file://) не срабатывает: там Chrome такое блокирует.
     if (location.protocol !== 'file:') {
       for (const name of ['playfair-display-latin', 'rubik-latin']) {
         const link = document.createElement('link');
@@ -25,6 +25,7 @@
   <script src="scripts/main.js" defer></script>
 </head>
 <body class="page">
+  <!-- Шапка: логотип, меню и кнопки входа -->
   <header class="header">
     <div class="header__inner">
       <img class="header__logo" src="images/logo.svg" alt="Travellian" width="234" height="46">
@@ -55,6 +56,7 @@
   </header>
 
   <main>
+    <!-- Первый экран: заголовок, форма поездки и слайдер фона -->
     <section class="hero hero--slide-1" id="hero">
       <div class="hero__inner container">
         <h1 class="hero__title">Start your unforgettable <br>journey with us.</h1>
@@ -120,6 +122,7 @@
       </div>
     </section>
 
+    <!-- Popular Destinations: карусель городов -->
     <section class="destinations section" id="destinations">
       <div class="container">
         <div class="section__header">
@@ -174,6 +177,7 @@
       </div>
     </section>
 
+    <!-- Special Offer: карусель предложений -->
     <section class="offers section" id="offers">
       <div class="container">
         <div class="section__header section__header--reverse offers__header">
@@ -234,6 +238,7 @@
       </div>
     </section>
 
+    <!-- Our Blog: статья -->
     <section class="blog section" id="blog">
       <div class="container">
         <div class="section__header">
@@ -254,6 +259,7 @@
       </div>
     </section>
 
+    <!-- Trip Planners: карточки туров -->
     <section class="trips section" id="trips">
       <div class="trips__inner container">
         <div class="trips__info">
@@ -319,6 +325,7 @@
       </div>
     </section>
 
+    <!-- Destination Gallery: карусель фото -->
     <section class="gallery section" id="gallery">
       <div class="container">
         <div class="section__header">
@@ -341,6 +348,7 @@
       </div>
     </section>
 
+    <!-- Traveler’s Experiences: карусель отзывов -->
     <section class="testimonials section" id="testimonials">
       <div class="container testimonials__inner">
         <div class="section__header testimonials__header">
@@ -387,6 +395,7 @@
       </div>
     </section>
 
+    <!-- Подписка на рассылку -->
     <section class="newsletter" id="newsletter">
       <div class="newsletter__card">
         <h2 class="newsletter__title">Our Newsletter</h2>
@@ -402,6 +411,7 @@
     </section>
   </main>
 
+  <!-- Подвал: меню, контакты, соцсети -->
   <footer class="footer" id="contacts">
     <div class="footer__inner container">
       <div>
