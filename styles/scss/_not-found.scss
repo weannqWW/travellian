@@ -1,124 +1,21 @@
 @use "variables" as *;
 @use "mixins" as *;
 
-// Page 404: a photo screen in the style of the first screen of the main page
+// Page 404: white screen with the code in the middle
 .not-found {
   display: flex;
   align-items: center;
+  justify-content: center;
   min-height: 100vh;
-  background-color: $color-dark;
-  background-image: linear-gradient(rgba($color-black, 0.45), rgba($color-black, 0.45)), url("../../images/hero-3.webp");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: $color-white;
-
-  &__inner {
-    padding-top: 200px;
-    padding-bottom: 160px;
-
-    @include tablet {
-      padding-top: 180px;
-      padding-bottom: 100px;
-    }
-
-    @include mobile {
-      padding-top: 140px;
-      padding-bottom: 80px;
-    }
-  }
-
-  // Short line before the label, like the accent line under section titles
-  &__label {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 8px;
-    font-size: 20px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-
-    &::before {
-      content: "";
-      width: 60px;
-      height: 3px;
-      background-color: $color-accent;
-    }
-
-    @include mobile {
-      font-size: 16px;
-    }
-  }
 
   &__code {
-    color: $color-accent;
     font-family: $font-title;
-    margin-bottom: 24px;
-    font-size: 240px;
+    font-size: 160px;
     font-weight: 400;
     line-height: 1;
 
-    @include tablet {
-      font-size: 180px;
-    }
-
     @include mobile {
-      font-size: 120px;
-    }
-  }
-
-  &__title {
-    max-width: 1100px;
-    margin-bottom: 24px;
-    font-family: $font-title;
-    font-size: 64px;
-    font-weight: 400;
-    line-height: $line-title;
-
-    @include tablet {
-      font-size: 54px;
-    }
-
-    @include mobile {
-      font-size: 34px;
-    }
-  }
-
-  &__text {
-    max-width: 640px;
-    margin-bottom: 56px;
-    font-size: 24px;
-    line-height: 28px;
-
-    @include tablet {
-      font-size: 20px;
-      line-height: 24px;
-    }
-
-    @include mobile {
-      margin-bottom: 40px;
-      font-size: 18px;
-      line-height: 21px;
-    }
-  }
-
-  &__actions {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 24px 40px;
-  }
-
-  &__link {
-    display: inline-flex;
-    align-items: center;
-    gap: 16px;
-    font-size: 20px;
-    text-decoration: none;
-    transition: color $transition;
-
-    &:hover {
-      color: $color-accent;
+      font-size: 100px;
     }
   }
 }
