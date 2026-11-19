@@ -1,7 +1,9 @@
 @use "variables" as *;
 @use "mixins" as *;
 
-// The card lies half on the page and half on the footer
+// Раздел подписки на рассылку
+
+// Карточка подписки лежит наполовину на странице, наполовину на подвале
 .newsletter {
   position: relative;
   z-index: 1;
@@ -138,7 +140,7 @@
     }
   }
 
-  // Result of the check; it does not move other elements on wide screens
+  // Сообщение о результате проверки, на широких экранах не сдвигает другие элементы
   &__message {
     position: absolute;
     top: 100%;

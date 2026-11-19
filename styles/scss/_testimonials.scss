@@ -1,6 +1,7 @@
 @use "variables" as *;
 @use "mixins" as *;
 
+// Раздел «Traveler’s Experiences»: карусель отзывов
 .testimonials {
   padding-bottom: 134px;
 
@@ -26,7 +27,7 @@
     }
   }
 
-  // Extra space: the round photo sticks out above the card
+  // Запас сверху: круглое фото выступает над карточкой
   &__header {
     margin-bottom: 160px;
 
@@ -46,7 +47,7 @@
     }
   }
 
-  // The row is wider than the container: other reviews wait behind the right edge
+  // Ряд шире контейнера: остальные отзывы прячутся за правым краем
   &__list {
     @include reset-list;
     display: flex;

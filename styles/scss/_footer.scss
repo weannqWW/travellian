@@ -1,6 +1,7 @@
 @use "variables" as *;
 @use "mixins" as *;
 
+// Подвал: логотип, меню, контакты и соцсети
 .footer {
   padding: 240px 0 140px;
   background-color: $color-dark;

@@ -1,7 +1,9 @@
 @use "variables" as *;
 @use "mixins" as *;
 
-// Background photo with a 30% dark layer, as in the mockup
+// Первый экран: фоновое фото, заголовок, слайдер и форма поездки
+
+// Фоновое фото с тёмным слоем 30%, как в макете
 @mixin hero-photo($file) {
   background-image: linear-gradient(rgba($color-black, 0.3), rgba($color-black, 0.3)), url("../../images/#{$file}");
 }
@@ -15,8 +17,8 @@
   color: $color-white;
   transition: background-image 0.5s ease;
 
-  // One modifier per slide; the script switches them.
-  // The first photo is framed like in the mockup: each frame shows its own part of it.
+  // По модификатору на каждый слайд, скрипт их переключает.
+  // Первое фото кадрировано как в макете: в каждом фрейме видна своя часть.
   &--slide-1 {
     @include hero-photo("hero-1.webp");
     background-position: center 92.6%;
@@ -119,7 +121,7 @@
     }
   }
 
-  // Dots and arrows that switch the background photo
+  // Точки и стрелки, которые переключают фоновое фото
   &__slider {
     position: absolute;
     top: 483px;
@@ -189,7 +191,7 @@
   }
 }
 
-// Trip form on the first screen
+// Форма поездки на первом экране
 .booking {
   position: relative;
   display: flex;
@@ -220,7 +222,7 @@
     border-radius: 16px;
   }
 
-  // White background continues to the left edge of the screen
+  // Белый фон продолжается до левого края экрана
   &::before {
     content: "";
     position: absolute;
@@ -270,7 +272,7 @@
     }
   }
 
-  // Text field, select and the visible part of a date field look the same
+  // Текстовое поле, список и видимая часть поля даты выглядят одинаково
   &__input,
   &__date {
     display: block;
@@ -298,7 +300,7 @@
     }
   }
 
-  // 24px icon plus 10px under it, as in the mockup
+  // Иконка 24px и отступ 10px под ней, как в макете
   &__input--select,
   &__date {
     min-height: 34px;
@@ -335,7 +337,7 @@
     text-overflow: ellipsis;
   }
 
-  // The real date input covers the text and stays invisible
+  // Настоящее поле даты лежит поверх текста и остаётся невидимым
   &__date-input {
     position: absolute;
     top: 0;
@@ -391,7 +393,7 @@
     flex-shrink: 0;
   }
 
-  // Result of the check; it does not move other elements
+  // Сообщение о результате проверки, не сдвигает другие элементы
   &__message {
     position: absolute;
     top: 100%;

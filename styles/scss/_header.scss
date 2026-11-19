@@ -1,7 +1,7 @@
 @use "variables" as *;
 @use "mixins" as *;
 
-// The header lies over the first screen
+// Шапка лежит поверх первого экрана
 .header {
   position: absolute;
   top: 0;
@@ -38,7 +38,7 @@
     }
   }
 
-  // Menu and buttons: a row on desktop, a drop-down panel on tablets and phones
+  // Меню и кнопки: на компьютере в ряд, на планшетах и телефонах — выпадающая панель
   &__panel {
     display: flex;
     flex-grow: 1;
@@ -91,7 +91,7 @@
     }
   }
 
-  // Three lines that turn into a cross when the menu is open
+  // Три полоски, которые превращаются в крестик, когда меню открыто
   &__burger {
     @include reset-button;
     display: none;
@@ -129,7 +129,7 @@
 }
 
 .menu {
-  // Equal free space on both sides keeps the menu between the logo and the buttons
+  // Одинаковое свободное место с двух сторон держит меню между логотипом и кнопками
   margin: 0 auto;
 
   @include tablet {

@@ -1,4 +1,4 @@
-// Entry file: settings first, then base styles and page blocks in page order
+// Главный файл: сначала базовые стили, потом блоки в том порядке, как они идут на странице
 @use "base";
 @use "components";
 @use "header";

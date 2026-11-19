@@ -1,4 +1,4 @@
-// Colors from the Figma style guide
+// Цвета из стайлгайда Figma
 $color-accent: #ff7757;
 $color-accent-dark: #e9603f;
 $color-dark: #172432;
@@ -9,28 +9,28 @@ $color-light: #f5f6f7;
 $color-cream: #fff8f1;
 $color-peach: #ffe8d4;
 
-// Fonts
+// Шрифты
 $font-title: "Playfair Display", Georgia, serif;
 $font-text: "Rubik", Arial, sans-serif;
 $font-card: "Mulish", Arial, sans-serif;
 
-// Line heights that Figma uses for "auto"
+// Межстрочные интервалы, которые Figma ставит для "auto"
 $line-title: 1.333;
 $line-text: 1.185;
 $line-card: 1.255;
 
-// Layout: 1556px of content plus 32px side paddings
+// Сетка: 1556px контента плюс отступы по 32px по бокам
 $container-max: 1620px;
 $container-padding: 32px;
 $gap: 32px;
 
-// Breakpoints (the mockup has frames 1920, 1440, 1152, 768 and 320)
+// Точки перелома (в макете фреймы 1920, 1440, 1152, 768 и 320)
 $screen-wide: 1920px;
 $screen-laptop: 1279px;
 $screen-tablet: 1023px;
 $screen-mobile: 767px;
 
-// Shapes and motion
+// Скругления и анимация
 $radius-card: 26px;
 $radius-button: 12px;
 $transition: 0.3s ease;

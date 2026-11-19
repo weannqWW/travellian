@@ -1,7 +1,9 @@
 @use "variables" as *;
 @use "mixins" as *;
 
-// Accent button: "Sign up", "Details", "Subscribe", "View all trip plans"
+// Общие элементы, которые повторяются в разных разделах
+
+// Оранжевая кнопка: "Sign up", "Details", "Subscribe", "View all trip plans"
 .button {
   display: inline-flex;
   align-items: center;
@@ -25,7 +27,7 @@
   }
 }
 
-// Section title: heading, accent line and short text
+// Заголовок раздела: заголовок, оранжевая линия и короткий текст
 .section-title {
   flex-grow: 1;
 
@@ -38,7 +40,7 @@
     font-weight: 400;
     line-height: 85px;
 
-    // The line width is set in each section because the mockup uses different widths
+    // Ширина линии задаётся в каждом разделе: в макете она разная
     &::after {
       content: "";
       position: absolute;
@@ -77,7 +79,7 @@
     }
   }
 
-  // Title aligned to the right edge ("Special Offer"); phones keep it on the left
+  // Заголовок по правому краю ("Special Offer"), на телефонах слева
   &--right {
     text-align: right;
 
@@ -97,7 +99,7 @@
   }
 }
 
-// Previous / next buttons of a carousel
+// Кнопки карусели «назад» и «вперёд»
 .arrows {
   display: flex;
   flex-shrink: 0;
@@ -128,7 +130,7 @@
   }
 }
 
-// Five stars as one picture
+// Пять звёзд одной картинкой
 .rating {
   flex-shrink: 0;
   width: 136px;

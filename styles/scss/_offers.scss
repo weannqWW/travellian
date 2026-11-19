@@ -1,6 +1,7 @@
 @use "variables" as *;
 @use "mixins" as *;
 
+// Раздел «Special Offer»: карусель карточек со скидками
 .offers {
   padding-bottom: 150px;
 
@@ -54,7 +55,7 @@
   flex-direction: column;
   height: 100%;
 
-  // 10% accent tint over the photo
+  // Оранжевый слой 10% поверх фото
   &::before {
     content: "";
     position: absolute;

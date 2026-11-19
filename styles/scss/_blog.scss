@@ -1,6 +1,7 @@
 @use "variables" as *;
 @use "mixins" as *;
 
+// Раздел «Our Blog»: фото и текст статьи
 .blog {
   padding-bottom: 142px;
 
@@ -27,7 +28,7 @@
     }
   }
 
-  // brightness(0.8) gives the same result as the 20% black layer in the mockup
+  // brightness(0.8) даёт то же, что чёрный слой 20% в макете
   &__image {
     @include cover-image;
     height: 802px;
@@ -51,7 +52,7 @@
     }
   }
 
-  // Lets the text column shrink inside the grid
+  // Позволяет колонке с текстом сжиматься внутри сетки
   &__article {
     min-width: 0;
   }

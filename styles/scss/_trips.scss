@@ -1,6 +1,7 @@
 @use "variables" as *;
 @use "mixins" as *;
 
+// Раздел «Trip Planners»: текст с кнопкой и карточки туров
 .trips {
   padding-bottom: 142px;
 
@@ -30,7 +31,7 @@
   &__info {
     flex: 0 0 394px;
 
-    // The 1920 frame places this block 62px lower
+    // Во фрейме 1920 этот блок на 62px ниже
     @include wide {
       margin-top: 124px;
     }
@@ -45,7 +46,7 @@
     width: 231px;
   }
 
-  // Button with two decorative squares behind its corners
+  // Кнопка с двумя декоративными квадратами за углами
   &__action {
     position: relative;
     display: inline-block;
@@ -80,7 +81,7 @@
     font-size: 18px;
   }
 
-  // The row is wider than the container, like in the mockup
+  // Ряд шире контейнера, как в макете
   &__list {
     @include reset-list;
     display: flex;
@@ -139,7 +140,7 @@
     filter: brightness(0.9);
   }
 
-  // Details are visible only in the selected card; tablets and phones show all of them
+  // Описание видно только у выбранной карточки, на планшетах и телефонах — у всех
   &__details {
     display: none;
     padding: 20px 0;
